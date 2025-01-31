@@ -1,0 +1,24 @@
+.back-button-container {
+    margin: 15px;
+    display: flex;
+
+    .back-button {
+        gap: 8px;
+        font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+        .back-button {
+            font-size: 14px;
+            padding: 6px 12px;
+        }
+    }
+}
+
+.parent-container {
+    .format-json {
+        font-size: 12px;
+        width: fit-content;
+        margin: 0 auto;
+    }
+}

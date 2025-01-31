@@ -1,0 +1,18 @@
+<mat-card class="property-card">
+    <div class="card-content">
+        <img mat-card-image [src]="property.MainPhotoWeb" alt="Property Image" (error)="setDefaultImage($event)" />
+        <img class="property-logo square" [src]="property.GroupLogoUrl" alt="Logo" />
+        <div class="card-details">
+            <h2>{{ property.PriceAsString }}</h2>
+            <p>{{ property.DisplayAddress }}</p>
+            <div class="icon-group">
+                <span><mat-icon>bed</mat-icon> {{ property.BedsString }}</span>
+                <span><mat-icon>shower</mat-icon> {{ property.BathString }}</span>
+            </div>
+            <div class="button-group">
+                <button mat-stroked-button (click)="redirectTo('property-brochure', property.PropertyId)">View Brochure</button>
+                <button mat-flat-button (click)="redirectTo('property-gallery', property.PropertyId)">View Gallery</button>
+            </div>
+        </div>
+    </div>
+</mat-card>

@@ -1,0 +1,14 @@
+<div class="back-button-container">
+    <button mat-stroked-button class="back-button" (click)="redirectTo('properties-list')">
+        <mat-icon>arrow_back</mat-icon> Back
+    </button>
+</div>
+
+<div class="parent-container">
+    @if (selectedProperty) {
+        <pre class="format-json">{{ selectedProperty | json }}</pre>
+    }
+    @else {
+        <p>Sorry cant load data</p>
+    }
+</div>

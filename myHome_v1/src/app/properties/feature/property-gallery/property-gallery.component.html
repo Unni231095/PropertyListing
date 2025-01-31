@@ -1,0 +1,37 @@
+<div class="back-button-container">
+    <button mat-stroked-button class="back-button" (click)="redirectTo('properties-list')">
+        <mat-icon>arrow_back</mat-icon> Back
+    </button>
+</div>
+
+@if (selectedPropertyPhotos.length) {
+<div class="gallery-container">
+    <!-- Highlight Image -->
+    <div class="featured-image" (click)="openDialog(0)">
+        <img [src]="selectedPropertyPhotos[0]" alt="Featured Image Large" (error)="setDefaultImage($event)">
+        <!-- Small Screen: Number of photos hidden -->
+        <div class="image-count" *ngIf="selectedPropertyPhotos.length > 1">&plus; {{ selectedPropertyPhotos.length - 1
+            }}</div>
+    </div>
+
+    <!-- Small grid of 6 images -->
+    <div class="image-grid">
+        @for (img of selectedPropertyPhotos.slice(1, 6); track img; let i = $index) {
+        <div class="small-image" (click)="openDialog(i + 1)">
+            <img [src]="img" alt="Featured Images Small" (error)="setDefaultImage($event)">
+        </div>
+        }
+
+        <!-- Web Screen: Number of photos hidden -->
+        @if (selectedPropertyPhotos.length > 6) {
+        <div class="more-images" (click)="openDialog(6)">
+            <img [src]="selectedPropertyPhotos[6]" alt="More Images" (error)="setDefaultImage($event)">
+            @if (selectedPropertyPhotos.length != 7) {
+            <div class="overlay">&plus; {{ selectedPropertyPhotos.length - 6 }}
+            </div>
+            }
+        </div>
+        }
+    </div>
+</div>
+}

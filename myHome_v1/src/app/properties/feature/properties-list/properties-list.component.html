@@ -1,0 +1,53 @@
+@if (paginatedProperties.length) {
+<div color="primary" class="toolbar-container">
+  <span class="spacer"></span>
+  <!-- Dropdown for Sort selection -->
+  <mat-form-field appearance="outline" class="sort-filter">
+    <mat-label>Sort by</mat-label>
+    <mat-select (selectionChange)="sortProperties()" [(ngModel)]="sortOrder">
+      <mat-option name="sort-asc" value="asc">Price: Low to High</mat-option>
+      <mat-option name="sort-desc" value="desc">Price: High to Low</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Text fields to filter by price -->
+  <div class="price-filter">
+    <mat-form-field appearance="outline">
+      <mat-label>Min Price(€)</mat-label>
+      <input step="20000" matInput type="number" [(ngModel)]="minPrice" (ngModelChange)="filterProperties()"
+        placeholder="Enter min price">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Max Price(€)</mat-label>
+      <input step="20000" matInput type="number" [(ngModel)]="maxPrice" (ngModelChange)="filterProperties()"
+        placeholder="Enter max price">
+    </mat-form-field>
+  </div>
+
+  <span class="spacer"></span>
+
+  <!-- TO DO: Price Range and Slider -->
+  <!-- <div class="price-slider">
+    <p>Price Range: {{ minPrice | currency: 'EUR'}} - {{ maxPrice| currency: 'EUR' }}</p>
+    <mat-slider thumbLabel min="0" max="2500000" step="20000" class="slider">
+      <input matSliderStartThumb step="5000" thumbLabel [(ngModel)]="minPrice" (change)="filterProperties()">
+      <input matSliderEndThumb step="5000" thumbLabel [(ngModel)]="maxPrice" (change)="filterProperties()">
+    </mat-slider>
+  </div>
+  <span class="spacer"></span> -->
+</div>
+}
+<!-- Property Card -->
+@for (item of paginatedProperties; track item.PropertyId) {
+<app-property-card [cardType]="cardView" [property]="item"></app-property-card>
+}
+@empty {
+<p>Sorry! Please try after sometime!</p>
+}
+<!-- Paginator -->
+@if (paginatedProperties.length) {
+<mat-paginator #paginator [length]="filteredProperties.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 15, 20]"
+  aria-label="Select page" (page)="onPaginate($event)">
+</mat-paginator>
+}

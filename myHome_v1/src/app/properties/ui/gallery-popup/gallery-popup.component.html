@@ -1,0 +1,28 @@
+<div class="dialog-container">
+    <button class="close-btn" mat-fab (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+
+    <!-- Switch images left -->
+    @if (currentIndex > 0) {
+        <button class="nav-btn left" mat-fab aria-label="Navigate image button Left" (click)="prevImage()">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+    }
+
+    <img [src]="data.images[currentIndex]" alt="Expanded Image" class="main-image" (error)="setDefaultImage($event)">
+
+    <!-- Switch images right -->
+    @if (currentIndex < data.images.length - 1) { 
+        <button class="nav-btn right" mat-fab aria-label="Navigate image button Right" (click)="nextImage()">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    }
+
+    <!-- Thumbnail Images -->
+    <div class="thumbnail-container">
+        @for (img of data.images;track img; let i = $index) {
+            <img [src]="img" [class.active]="i === currentIndex" (click)="setImage(i)" class="thumbnail" (error)="setDefaultImage($event)">
+        }
+    </div>
+</div>
