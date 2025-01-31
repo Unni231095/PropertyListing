@@ -10,7 +10,7 @@
     }
 
     .sort-filter {
-        width: 180px;
+        width: 200px;
     }
 
     .price-filter {
@@ -35,4 +35,16 @@
             width: 100%;
         }
     }
+}
+
+.no-data {
+    padding-top: 20%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.filter {
+    bottom: 10px;
+    gap: 8px;
+    font-size: 16px;
 }

@@ -10,8 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-properties-list',
@@ -28,7 +29,8 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatSliderModule,
     MatPaginatorModule,
-    MatButtonToggleModule
+    MatButtonModule,
+    MatIconModule
   ],
   templateUrl: './properties-list.component.html',
   styleUrl: './properties-list.component.scss'
@@ -100,6 +102,7 @@ export class PropertiesListComponent {
         (this.maxPrice === null || price <= this.maxPrice)
       );
     });
+    this.sortProperties()
     this.paginator.firstPage();
     this.updatePaginatedProperties();
   }
