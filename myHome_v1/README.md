@@ -4,11 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server inside myHome_v1 folder. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Navigate inside myHome_v1 folder. Install all dependencies using `npm install`.  Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project inside myHome_v1 folder. The build artifacts will be stored in the `dist/` directory.
+Navigate inside myHome_v1 folder. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Functionality overview
 
@@ -31,6 +31,7 @@ Run `ng build` to build the project inside myHome_v1 folder. The build artifacts
     - Displays all images of the property in a Grid system
     - Image Gallery
         - Navigate through all images
+    - Back button: Navigates to Properties List
 
 ## Further help
 
